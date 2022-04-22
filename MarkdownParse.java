@@ -11,7 +11,6 @@ public class MarkdownParse {
         ArrayList<String> toReturn = new ArrayList<>();
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
-        
         while(currentIndex < markdown.length()) {
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
@@ -19,8 +18,6 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
-            
-
 
             //exits the function if there is a missing bracket/parenthesis
             if (openBracket == -1 || closeBracket == -1) {
@@ -33,10 +30,6 @@ public class MarkdownParse {
                 System.out.println("Invalid parenthesis index");
                 System.exit(1);
             }
-
-            //
-
-
         }
 
         return toReturn;
@@ -48,5 +41,6 @@ public class MarkdownParse {
         String content = Files.readString(fileName);
         ArrayList<String> links = getLinks(content);
 	    System.out.println(links);
+        
     }
 }
