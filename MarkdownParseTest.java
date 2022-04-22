@@ -18,14 +18,45 @@ public class MarkdownParseTest {   //creates the class for testing
         try {
             String file = Files.readString(filePath);
             List<String> result = MarkdownParse.getLinks(file);
-            List<String> expected = List.of("https://something.com", "some-page.html");
+            List<String> expected = List.of("https://something.com", "some-thing.html");
             assertEquals("Lists should be equal", expected, result);
         }
 
         catch (Exception e) {
-            System.out.println("Exception was thrown and caught");
+            System.out.println("Exception was thrown and caught in test 1");
         }
-        
-
     }
+
+@Test
+    public void testGetLinks2() {
+        Path filePath = Path.of("test-file2.md");
+        try {
+            String file = Files.readString(filePath);
+            List<String> result = MarkdownParse.getLinks(file);
+            List<String> expected = List.of("https://something.com", "some-thing.html");
+            assertEquals("Lists should be equal", expected, result);
+        }
+
+        catch (Exception e) {
+            System.out.println("Exception was thrown and caught in test 2");
+        }
+    }
+
+@Test
+    public void testGetLinks3() {
+        Path filePath = Path.of("test-file3.md");
+        try {
+            String file = Files.readString(filePath);
+            List<String> result = MarkdownParse.getLinks(file);
+            List<String> expected = List.of("https://something.com", "some-thing.html");
+            assertEquals("Lists should be equal", expected, result);
+        }
+
+
+        catch (IOException e) {
+            System.out.println("Exception was thrown and caught in test 3");
+        }
+    }
+
+
 }
